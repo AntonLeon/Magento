@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Anton_HelloWorld>
+            <version>1.0.0</version>
+        </Anton_HelloWorld>
+    </modules>
+    <frontend>
+        <routers>
+            <helloworld>
+                <use>standard</use>
+                <args>
+                    <module>Anton_HelloWorld</module>
+                    <frontName>myfirstpage</frontName>
+                </args>
+            </helloworld>
+        </routers>
+        <layout>
+            <updates>
+                <helloworld>
+                    <file>helloworld.xml</file>
+                </helloworld>
+            </updates>
+        </layout>
+    </frontend>
+
+    <global>
+        <blocks>
+            <helloworld>
+                <class>Anton_HelloWorld_Block</class>
+            </helloworld>
+        </blocks>
+    </global>
+</config>
