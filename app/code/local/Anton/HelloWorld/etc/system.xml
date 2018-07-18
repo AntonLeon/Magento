@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<anton>
+			<label>Anton</label>
+			<sort_order>200</sort_order>
+		</anton>
+	</tabs>
+	<sections>
+		<helloworld>
+			<label>Hello World</label>
+			<tab>anton</tab>
+			<frontend>text</frontend>
+			<sort_order>1</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<settings>
+					<label>Settings</label>
+					<expended>0</expended>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<raw_text>
+							<label>Text</label>
+							<frontend_type>textArea</frontend_type>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</raw_text>
+					</fields>
+				</settings>
+			</groups>
+		</helloworld>
+	</sections>
+</config>
