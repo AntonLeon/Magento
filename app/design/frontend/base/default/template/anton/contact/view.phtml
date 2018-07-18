@@ -1,0 +1,12 @@
+<?php
+/**
+ * @var Anton_HelloWorld_Block_View $this
+ */
+?>
+
+<ul>
+    <?php foreach ($this->getRequestedRecord()->getData() as $val): ?>
+    <li><b><?= $val['name'] ?> said:</b></li>
+    <li><?= $val['comment'] ?></li><br>
+    <?php endforeach ?>
+</ul>

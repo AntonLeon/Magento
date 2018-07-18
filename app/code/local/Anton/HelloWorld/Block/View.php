@@ -2,8 +2,8 @@
 
 class Anton_HelloWorld_Block_View extends Mage_Core_Block_Template
 {
-    protected function _toHtml()
+    public function getRequestedRecord()
     {
-        return Mage::getStoreConfig('helloworld/settings/raw_text');
+        return Mage::getModel('helloworld/contact')->getCollection();
     }
 }

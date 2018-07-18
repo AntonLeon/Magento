@@ -11,7 +11,7 @@
                 <use>standard</use>
                 <args>
                     <module>Anton_HelloWorld</module>
-                    <frontName>myfirstpage</frontName>
+                    <frontName>magetalk</frontName>
                 </args>
             </helloworld>
         </routers>
@@ -30,6 +30,20 @@
                 <class>Anton_HelloWorld_Block</class>
             </helloworld>
         </blocks>
+        <models>
+            <helloworld>
+                <class>Anton_HelloWorld_Model</class>
+                <resourceModel>helloworld_resource</resourceModel>
+            </helloworld>
+            <helloworld_resource>
+                <class>Anton_HelloWorld_Model_Resource</class>
+                <entities>
+                    <contact>
+                        <table>ain_contact</table>
+                    </contact>
+                </entities>
+            </helloworld_resource>
+        </models>
     </global>
 	
 	<admin>
