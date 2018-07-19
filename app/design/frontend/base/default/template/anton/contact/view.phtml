@@ -5,8 +5,8 @@
 ?>
 
 <ul>
-    <?php foreach ($this->getRequestedRecord()->getData() as $val): ?>
-    <li><b><?= $val['name'] ?> said:</b></li>
-    <li><?= $val['comment'] ?></li><br>
+    <?php foreach ($this->getRequestedRecord() as $val): ?>
+    <li><b><?= $val->getName() ?> said:</b></li>
+    <li><?= $val->getComment() ?></li><br>
     <?php endforeach ?>
 </ul>
