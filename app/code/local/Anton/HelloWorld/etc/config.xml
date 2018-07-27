@@ -44,18 +44,22 @@
                 </entities>
             </helloworld_resource>
         </models>
+        <helpers>
+            <helloworld>
+                <class>Anton_HelloWorld_Helper</class>
+            </helloworld>
+        </helpers>
     </global>
-	
+    
 	<admin>
         <routers>
             <adminhtml>
                 <args>
                     <modules>
-                        <helloworld before="Mage Adminhtml">Anton_HelloWorld_Adminhtml</helloworld>
+                        <helloworld before="Mage_Adminhtml">Anton_HelloWorld_Adminhtml</helloworld>
                     </modules>
                 </args>
             </adminhtml>
         </routers>
     </admin>
-
 </config>
