@@ -37,10 +37,16 @@ class Anton_HelloWorld_Block_Adminhtml_Contact_Grid extends Mage_Adminhtml_Block
             'index' => 'name',
         ]);
 
-        $this->addColumn('message', [
+        $this->addColumn('type_message', [
             'header' => $helper->__('Type of Message'),
-            'type' => 'select',
+            'type' => 'text',
             'index' => 'type_message',
+        ]);
+
+        $this->addColumn('image', [
+            'header' => $helper->__('Image'),
+            'type' => 'text',
+            'index' => 'image',
         ]);
 
 

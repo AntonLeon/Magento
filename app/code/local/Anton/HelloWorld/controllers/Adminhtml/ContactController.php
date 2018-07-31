@@ -79,7 +79,26 @@ class Anton_HelloWorld_Adminhtml_ContactController extends Mage_Adminhtml_Contro
             $model->setRequestId($data['request_id'])
                 ->setName($data['name'])
                 ->setComment($data['comment'])
+                ->setTypeMessage($data['type_message'])
                 ->save();
+
+                $helper = Mage::helper('helloworld');
+                $id = $model->getId();
+
+            if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
+                $uploader = new Varien_File_Uploader('image');
+                $uploader->setAllowedExtensions(array('jpg', 'jpeg'));
+                $uploader->setAllowRenameFiles(false);
+                $uploader->setFilesDispersion(false);
+                $uploader->save($helper->getImagePath($id));
+
+                $model->setImage($helper->getImagePath($id))->save();
+
+            } else {
+                if (isset($data['image']['delete']) && $data['image']['delete'] == 1) {
+                    @unlink($helper->getImagePath($id));
+                }
+            }
 
             Mage::getSingleton('adminhtml/session')->addSuccess('Item was successfully saved');
             Mage::getSingleton('adminhtml/session')->setmodel(false);

@@ -45,6 +45,24 @@ class Anton_HelloWorld_Block_Adminhtml_Contact_Edit_Form extends Mage_Adminhtml_
             'required' => true,
         ]);
 
+        $fieldset->addField('image', 'image', [
+            'name' => 'image',
+            'label' => Mage::helper('helloworld')->__('Upload Image'),
+        ]);
+
+        $fieldset->addField('type_message', 'select', [
+            'name' => 'type_message',
+            'label' => Mage::helper('helloworld')->__('Type of Message'),
+            'title' => Mage::helper('helloworld')->__('Type of Message'),
+            'required' => true,
+            'values' => array(
+                'Жалоба' => 'Жалоба', 
+                'Предложение' => 'Предложение',
+                'Пожелание' => 'Пожелание', 
+                'Благодарность' => 'Благодарность'
+            ),
+        ]);
+
 
         $fieldset->addField('comment', 'editor', [
             'name' => 'comment',
@@ -54,7 +72,6 @@ class Anton_HelloWorld_Block_Adminhtml_Contact_Edit_Form extends Mage_Adminhtml_
             'required' => true,
             'config' => Mage::getSingleton('cms/wysiwyg_config')->getConfig(),
         ]);
-
 
         $form->setValues($model->getData());
         $form->setUseContainer(true);
