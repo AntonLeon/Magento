@@ -2,7 +2,12 @@
 <layout>
     <helloworld_index_index>
         <reference name="content">
-            <block type="helloworld/view" name="helloworld" template="anton/contact/view.phtml"/>
+            <block type="helloworld/view" name="helloworld" template="anton/contact/view.phtml">
+                <action method="setData">
+                    <key>class</key>
+                    <value>contact-request</value>
+                </action>
+            </block>
         </reference>
     </helloworld_index_index>
 </layout>

@@ -4,9 +4,14 @@
  */
 ?>
 
-<ul>
+<ul class="<?= $this->getData('class') ?>">
     <?php foreach ($this->getRequestedRecord() as $val): ?>
     <li><b><?= $val->getName() ?> said:</b></li>
     <li><?= $val->getComment() ?></li><br>
     <?php endforeach ?>
 </ul>
+<br>
+<div>
+    <?= $this->getChildHtml('cookies.notice') ?>
+</div>
+

@@ -102,6 +102,8 @@
                     <label>Page Header</label>
                     <action method="setElementClass"><value>top-container</value></action>
                 </block>
+                <block type="core/template" name="top.search" as="topSearch" template="catalogsearch/form.mini.phtml"/>
+
                 <block type="page/html_welcome" name="welcome" as="welcome"/>
             </block>
 

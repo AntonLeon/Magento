@@ -21,4 +21,9 @@ class Anton_HelloWorld_Helper_Data extends Mage_Core_Helper_Abstract
             return $url;
         }
     }
+
+    public function getCategoryUrl()
+    {
+        return $this->_getUrl('anton/helloworld');
+    }
 }

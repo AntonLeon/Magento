@@ -62,6 +62,9 @@ Default layout, loads most of the pages
         <reference name="footer_links">
             <action method="addLink" translate="label title" module="catalog" ifconfig="catalog/seo/site_map"><label>Site Map</label><url helper="catalog/map/getCategoryUrl" /><title>Site Map</title></action>
         </reference>
+        <reference name="footer_links2">
+            <action method="addLink" module="anton"><label>Contact</label><url name="anton/helloworld" /><title>Contact</title></action>
+        </reference>
         <block type="catalog/product_price_template" name="catalog_product_price_template" />
     </default>
 

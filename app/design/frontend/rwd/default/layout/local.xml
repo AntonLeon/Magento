@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <helloworld_index_index>
+
+        <reference name="content">
+            <block type="helloworld/view" name="helloworld" template="anton/contact/view.phtml">
+                <block type="cms/block" name="cookies.notice">
+                    <action method="setBlockId">
+                        <id>cookie_restriction_notice_block</id>
+                    </action>
+                </block>
+            </block>
+        </reference>
+        <!--<reference name="footer_links2">-->
+            <!--<block type="anton/view" name="helloworld"/>-->
+            <!--<action method="addLinkBlock"><blockName>CONTACT US</blockName></action>-->
+
+        <!--</reference>-->
+    </helloworld_index_index>
+</layout>
