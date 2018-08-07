@@ -14,6 +14,13 @@
                     <frontName>magetalk</frontName>
                 </args>
             </helloworld>
+            <contacts>
+                <args>
+                    <modules>
+                        <helloworld before="Mage_Contacts">Anton_HelloWorld_Contacts</helloworld>
+                    </modules>
+                </args>
+            </contacts>
         </routers>
         <layout>
             <updates>
@@ -49,6 +56,16 @@
                 <class>Anton_HelloWorld_Helper</class>
             </helloworld>
         </helpers>
+        <events>
+            <cms_save_contact_request>
+                <observer>
+                    <helloworld>
+                        <class>helloworld/observer</class>
+                            <method>saveRequest</method>
+                    </helloworld>
+                </observer>
+            </cms_save_contact_request>
+        </events>
     </global>
     
 	<admin>
