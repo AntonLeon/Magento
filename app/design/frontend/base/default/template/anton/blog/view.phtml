@@ -1,0 +1,11 @@
+<?php
+/**
+ * @var Anton_MyBlog_Block_View $this
+ */
+?>
+
+<?php foreach ($this->getCategoriesCollection() as $val): ?>
+    <div>
+        <a href="blog/post/index?category=<?= lcfirst($val->getName()) ?>"><?= $val->getName() ?></a>
+    </div>
+<?php endforeach ?>

@@ -1,0 +1,13 @@
+<?php
+/**
+ * @var Anton_MyBlog_Block_View $this
+ */
+    $posts = $this->getPostsId('politic');
+    var_dump($posts);
+?>
+
+<ul>
+    <?php foreach ($posts as $post): ?>
+        <?php var_dump($post) ?>
+    <?php endforeach ?>
+</ul>
