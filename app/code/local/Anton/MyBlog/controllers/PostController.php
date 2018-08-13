@@ -7,4 +7,10 @@ class Anton_MyBlog_PostController extends Mage_Core_Controller_Front_Action
         $this->loadLayout();
         $this->renderLayout();
     }
+
+    public function viewAction()
+    {
+        $this->loadLayout();
+        $this->renderLayout();
+    }
 }

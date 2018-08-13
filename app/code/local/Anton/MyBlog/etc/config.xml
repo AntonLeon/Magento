@@ -53,5 +53,22 @@
                 </setup>
             </myblog_setup>
         </resources>
+        <helpers>
+            <myblog>
+                <class>Anton_MyBlog_Helper</class>
+            </myblog>
+        </helpers>
     </global>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <anton_myblog before="Mage_Adminhtml">Anton_MyBlog_Adminhtml</anton_myblog>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
 </config>

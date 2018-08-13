@@ -4,28 +4,38 @@ class Anton_MyBlog_Block_View extends Mage_Core_Block_Template
 {
     public function getCategoriesCollection()
     {
-        return Mage::getModel('myblog/category')->getCollection();
+        $collection =  Mage::getModel('myblog/category')->getCollection();
+        $collection->getSelect()->group('name');
+        return $collection;
     }
 
-    public function getPostsId($name)
+    public function getPosts($name)
     {
         $posts = Mage::getModel('myblog/category')->getCollection();
+        //$posts->join('myblog/post', 'post_ids=post_id', 'name as post_name');
         $posts->addFieldToFilter('name', "$name");
-        $posts->joinTable('myblog_post', 'post_id=post_ids', null, 'left');
-        //$posts->getSelect()->join('post', 'category.post_ids=post.post_id', array('name'));
+//        $posts->addAttributeToFilter(
+//            array('name' => "$name"),
+//            array('status' => 1)
+//        );
+
+
         return $posts;
     }
 
-    public function getPostName($id)
+    public function getPostById($id)
     {
-        $post = Mage::getModel('myblog/post')->load(1);
-        //$post->addFieldToFilter('post_ids', $id);
-        return $post;
+        $post = Mage::getModel('myblog/post')->getCollection();
+        $post->addFieldToFilter('post_id', $id);
 
+        return $post;
     }
 
     public function getPostsByCategory($id)
     {
-        return Mage::getModel('myblog/post')->getData();
+        return Mage::getModel('myblog/post')->getCollection()
+            ->join('myblog/category', 'post_id=post_ids', 'name as category_name')
+            ->addFieldToFilter('post_id', $id)
+            ->getData();
     }
 }

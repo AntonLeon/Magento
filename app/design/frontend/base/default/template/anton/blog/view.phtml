@@ -4,8 +4,8 @@
  */
 ?>
 
-<?php foreach ($this->getCategoriesCollection() as $val): ?>
-    <div>
-        <a href="blog/post/index?category=<?= lcfirst($val->getName()) ?>"><?= $val->getName() ?></a>
-    </div>
-<?php endforeach ?>
+<ul>
+    <?php foreach ($this->getCategoriesCollection() as $val): ?>
+            <li><a href="blog/post?category=<?= lcfirst($val->getName()) ?>"><?= $val->getName() ?></a></li>
+    <?php endforeach ?>
+</ul>

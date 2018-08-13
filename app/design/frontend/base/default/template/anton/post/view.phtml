@@ -1,0 +1,14 @@
+<?php
+
+
+$post = $this->getPostById($this->getRequest()->getParam('id'));
+$post = $post->getData();
+
+?>
+
+<div>
+    <?php foreach ($post as $val): ?>
+        <div><?= $val['name'] ?></div>
+        <div><?= $val['content'] ?></div>
+    <?php endforeach ?>
+</div>

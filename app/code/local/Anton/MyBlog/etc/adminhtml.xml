@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<config>
+    <menu>
+        <cms>
+            <children>
+                <my_posts>
+                    <sort_order>50</sort_order>
+                    <title>Post Manager</title>
+                    <action>adminhtml/post</action>
+                </my_posts>
+                <my_categories>
+                    <sort_order>51</sort_order>
+                    <title>Category Manager</title>
+                    <action>adminhtml/category</action>
+                </my_categories>
+            </children>
+        </cms>
+    </menu>
+</config>

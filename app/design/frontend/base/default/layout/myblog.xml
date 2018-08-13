@@ -23,4 +23,16 @@
         </reference>
     </myblog_post_index>
 
+    <myblog_post_view>
+        <reference name="content">
+            <block type="myblog/view" name="myblog" template="anton/post/view.phtml">
+                <action method="setData">
+                    <key>class</key>
+                    <value>contact-request</value>
+                </action>
+            </block>
+        </reference>
+    </myblog_post_view>
+
+
 </layout>

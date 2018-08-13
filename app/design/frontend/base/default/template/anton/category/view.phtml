@@ -2,12 +2,13 @@
 /**
  * @var Anton_MyBlog_Block_View $this
  */
-    $posts = $this->getPostsId('politic');
-    var_dump($posts);
+    $posts = $this->getPosts($this->getRequest()->getParam('category'));
+var_dump($this->getPostById(1));
 ?>
-
 <ul>
-    <?php foreach ($posts as $post): ?>
-        <?php var_dump($post) ?>
+    <?php foreach ($posts as $post):?>
+            <li><a href="<?=Mage::getUrl('blog/post/view?id='.$post->getPostIds()) ?>">#</a></li>
     <?php endforeach ?>
 </ul>
+
+
