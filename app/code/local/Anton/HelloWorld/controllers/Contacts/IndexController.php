@@ -6,12 +6,14 @@ class Anton_HelloWorld_Contacts_IndexController extends Mage_Contacts_IndexContr
 {
     public function postAction()
     {
-        Mage::dispatchEvent('cms_save_contact_request', array(
-            'name' => $this->getRequest()->getPost('name'),
-            'comment' => $this->getRequest()->getPost('comment'),
-            'email' => $this->getRequest()->getPost('email')
-            ));
-        //var_dump($this->getRequest()->getPost());
-        return $this->_redirect('*/*/');
+        parent::postAction();
+        if ($this->getRequest()->getPost()) {
+            $model = Mage::getModel('helloworld/contact');
+            $model->setName($this->getRequest()->getPost('name'))
+                ->setComment($this->getRequest()->getPost('comment'))
+                ->setTypeMessage($this->getRequest()->getPost('telephone'))
+                ->setImage($this->getRequest()->getPost('email'))
+                ->save();
+        }
     }
 }

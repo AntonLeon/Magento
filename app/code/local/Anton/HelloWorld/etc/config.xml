@@ -57,14 +57,14 @@
             </helloworld>
         </helpers>
         <events>
-            <cms_save_contact_request>
+            <model_load_after>
                 <observer>
                     <helloworld>
                         <class>helloworld/observer</class>
                             <method>saveRequest</method>
                     </helloworld>
                 </observer>
-            </cms_save_contact_request>
+            </model_load_after>
         </events>
     </global>
     
