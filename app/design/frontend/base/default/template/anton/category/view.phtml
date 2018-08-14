@@ -1,13 +1,26 @@
 <?php
-/**
- * @var Anton_MyBlog_Block_View $this
- */
+
     $posts = $this->getPosts($this->getRequest()->getParam('category'));
-var_dump($this->getPostById(1));
+    $category = $this->getCategory($this->getRequest()->getParam('category'));
+
 ?>
-<ul>
+
+<div class="<?= $this->getData('class')?>">
+    <div class="<?= $this->getData('class')?>">
+        <?= $category['name'] ?>
+    </div>
+    <div class="<?= $this->getData('class')?>">
+        <?= $category['description'] ?>
+    </div>
+    <div class="<?= $this->getData('class')?>">
+        <?= $category['image'] ?>
+    </div>
+
+</div>
+
+<ul class="<?= $this->getData('class')?>">
     <?php foreach ($posts as $post):?>
-            <li><a href="<?=Mage::getUrl('blog/post/view?id='.$post->getPostIds()) ?>">#</a></li>
+            <li class="<?= $this->getData('class')?>"><a href="<?=Mage::getUrl('blog/post/view?id='.$post->getPostIds()) ?>"><?= $this->getPostNameById($post->getPostIds()) ?></a></li>
     <?php endforeach ?>
 </ul>
 

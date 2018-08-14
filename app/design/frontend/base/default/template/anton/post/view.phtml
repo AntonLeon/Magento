@@ -2,13 +2,12 @@
 
 
 $post = $this->getPostById($this->getRequest()->getParam('id'));
-$post = $post->getData();
 
 ?>
 
-<div>
+<div class="<?= $this->getData('class')?>">
     <?php foreach ($post as $val): ?>
-        <div><?= $val['name'] ?></div>
-        <div><?= $val['content'] ?></div>
+        <div class="<?= $this->getData('class')?>"><?= $val->getName() ?></div>
+        <div class="<?= $this->getData('class')?>"><?= $val->getContent() ?></div>
     <?php endforeach ?>
 </div>

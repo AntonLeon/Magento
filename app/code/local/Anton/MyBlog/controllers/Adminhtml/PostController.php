@@ -78,11 +78,18 @@ class Anton_MyBlog_Adminhtml_PostController extends Mage_Adminhtml_Controller_Ac
             $model = Mage::getModel('myblog/post');
             $categoryModel = Mage::getModel('myblog/category');
 
+            if (empty ($model->getCreatedAt())) {
+                $model->setCreatedAt(date('d-m-Y H:m:s'))
+                    ->save();
+            }
+
             $model->setRequestId($data['post_id'])
                 ->setName($data['name'])
                 ->setContent($data['content'])
                 ->setShortDescription($data['description'])
                 ->setStatus($data['status'])
+                //->setCreatedAt(date('d-m-Y H:m:s'))
+                ->setUpdatedAt(date('d-m-Y H:m:s'))
                 ->save();
             $categoryModel->setPostIds($data['post_id'])
                 ->setName($data['category'])

@@ -6,27 +6,51 @@ class Anton_MyBlog_Block_View extends Mage_Core_Block_Template
     {
         $collection =  Mage::getModel('myblog/category')->getCollection();
         $collection->getSelect()->group('name');
+
         return $collection;
+    }
+
+    public function getCategory($category)
+    {
+        $collection = Mage::getModel('myblog/category')->getCollection();
+        $collection->getSelect()->group('name');
+        $collection->addFieldToFilter('name', $category);
+        $collection->getData();
+
+        $coll = [];
+        foreach ($collection as $val) {
+                $coll['name'] = $val->getName();
+                $coll['description'] = $val->getDesription();
+                $coll['image'] = $val->getImage();
+        }
+
+        return $coll;
     }
 
     public function getPosts($name)
     {
         $posts = Mage::getModel('myblog/category')->getCollection();
-        //$posts->join('myblog/post', 'post_ids=post_id', 'name as post_name');
         $posts->addFieldToFilter('name', "$name");
-//        $posts->addAttributeToFilter(
-//            array('name' => "$name"),
-//            array('status' => 1)
-//        );
-
+        //$posts->getSelect()->order('DESC');
 
         return $posts;
     }
 
+    public function getPostNameById($id)
+    {
+        $post = Mage::getModel('myblog/post')->getCollection()
+            ->addFieldToFilter('post_id', $id)
+            ->addFieldToFilter('status', 1)
+            ->getData();
+
+        return $post[0]['name'];
+    }
+
     public function getPostById($id)
     {
-        $post = Mage::getModel('myblog/post')->getCollection();
-        $post->addFieldToFilter('post_id', $id);
+        $post = Mage::getModel('myblog/post')
+            ->addFieldToFilter('post_id', $id)
+            ->addFieldToFilter('status', 1);
 
         return $post;
     }
@@ -35,7 +59,6 @@ class Anton_MyBlog_Block_View extends Mage_Core_Block_Template
     {
         return Mage::getModel('myblog/post')->getCollection()
             ->join('myblog/category', 'post_id=post_ids', 'name as category_name')
-            ->addFieldToFilter('post_id', $id)
-            ->getData();
+            ->addFieldToFilter('post_id', $id);
     }
 }
